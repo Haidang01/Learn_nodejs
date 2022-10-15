@@ -5,6 +5,10 @@ const handleHelloWord = (req, res) => {
     return res.render('home.ejs');
 }
 const handleUserPage = async (req, res) => {
+    // Cookies that have not been signed
+    console.log('Cookies: ', req.cookies)
+    res.cookie('test', 'hahaha')
+    // Cookies that have been signed
     let userList = await userService.getUserList();
     return res.render('user.ejs', { userList })
 }
